@@ -11,7 +11,7 @@
   <arg name="smooth_cmd_vel_topic"  value="smoother_cmd_vel"/>
   <arg name="robot_cmd_vel_topic"   value="robot_cmd_vel"/>
   <arg name="odom_topic"            value="odom"/>
-  
+
   <!-- nodelet manager -->
   <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager"/>
   <!-- cmd_vel_mux -->
@@ -21,7 +21,7 @@
     <param name="yaml_cfg_file" value="$(find ir_sensor)/param/mux_plus.yaml" />
     <remap from="cmd_vel_mux/output" to="smoother_cmd_vel"/>
   </node>
-  
+
   <!-- velocity smoother -->
   <include file="$(find yocs_velocity_smoother)/launch/velocity_smoother.launch">
     <arg name="node_name"             value="$(arg node_name)"/>
@@ -35,12 +35,24 @@
 
   <node name="dashgo_check" pkg="dashgo_tools" type="check_action.py" output="screen" />
 
-  <node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar0"
+  <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar0"
    args="0.18 0.10 0.115 0.524 0.0  0.0 /base_footprint /sonar0 40" />
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar1"
    args="0.20 0.0 0.115 0.0 0.0 0.0 /base_footprint /sonar1 40" />
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar2"
    args="0.18 -0.10 0.115 -0.524 0.0 0.0 /base_footprint /sonar2 40" />
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar3"
-   args="-0.20 0.0 0.115 3.14 0.0 0.0 /base_footprint /sonar3 40" />
+   args="-0.20 0.0 0.115 3.14 0.0 0.0 /base_footprint /sonar3 40" /> -->
+
+<!-- Doi ten /base_footprint to base_footprint -->
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar0"
+   args="0.18 0.10 0.115 0.524 0.0  0.0 base_footprint /sonar0 40" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar1"
+   args="0.20 0.0 0.115 0.0 0.0 0.0 base_footprint /sonar1 40" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar2"
+   args="0.18 -0.10 0.115 -0.524 0.0 0.0 base_footprint /sonar2 40" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_sonar3"
+   args="-0.20 0.0 0.115 3.14 0.0 0.0 base_footprint /sonar3 40" />
+
+
 </launch>

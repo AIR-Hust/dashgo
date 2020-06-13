@@ -10,7 +10,7 @@ oscillation_timeout: 5.0
 oscillation_distance: 0.2
 
 # Planner selection
-base_global_planner: "global_planner/GlobalPlanner"  
+base_global_planner: "global_planner/GlobalPlanner"
 base_local_planner: "teb_local_planner/TebLocalPlannerROS"
 
 max_planning_retries: 1
@@ -23,7 +23,7 @@ recovery_behaviors:
     type: 'clear_costmap_recovery/ClearCostmapRecovery'
   - name: 'clearing_rotation'
     type: 'rotate_recovery/RotateRecovery'
-    
+
 conservative_reset:
   reset_distance: 1.0
   layer_names: [obstacle_layer]
@@ -41,5 +41,3 @@ move_slow_and_clear:
   limited_trans_speed: 0.1
   limited_rot_speed: 0.4
   limited_distance: 0.3
-
-

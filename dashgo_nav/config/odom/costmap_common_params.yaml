@@ -58,11 +58,11 @@ static_layer:
   map_topic:            "map"
 
 sonar_layer:
-  enabled:            true
-  clear_threshold:    0.6
-  mark_threshold:     0.8
-  topics: ["/sonar0", "/sonar1", "/sonar2", "/sonar3"]
-  clear_on_max_reading: true
+ enabled:            true
+ clear_threshold:    0.6
+ mark_threshold:     0.8
+ topics: ["/sonar0", "/sonar1", "/sonar2", "/sonar3"]
+ clear_on_max_reading: true
 
 #FIXME: ir_layer chua dieu chinh thong so
 ir_layer:
