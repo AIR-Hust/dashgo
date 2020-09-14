@@ -15,12 +15,12 @@
   <!-- nodelet manager -->
   <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager"/>
   <!-- cmd_vel_mux -->
-  <!-- <node pkg="nodelet" type="nodelet" name="vel_mux_manager" args="manager"/> -->
-  <!-- <node pkg="nodelet" type="nodelet" name="cmd_vel_mux" -->
-        <!-- args="load yocs_cmd_vel_mux/CmdVelMuxNodelet vel_mux_manager"> -->
-    <!-- <param name="yaml_cfg_file" value="$(find ir_sensor)/param/mux_plus.yaml" /> -->
-    <!-- <remap from="cmd_vel_mux/output" to="smoother_cmd_vel"/> -->
-  <!-- </node> -->
+  <node pkg="nodelet" type="nodelet" name="vel_mux_manager" args="manager"/>
+  <node pkg="nodelet" type="nodelet" name="cmd_vel_mux"
+        args="load yocs_cmd_vel_mux/CmdVelMuxNodelet vel_mux_manager">
+    <param name="yaml_cfg_file" value="$(find ir_sensor)/param/mux_plus.yaml" />
+    <remap from="cmd_vel_mux/output" to="smoother_cmd_vel"/>
+  </node>
 
   <!-- velocity smoother -->
   <include file="$(find yocs_velocity_smoother)/launch/velocity_smoother.launch">

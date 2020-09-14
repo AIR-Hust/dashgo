@@ -1,7 +1,7 @@
 <launch>
   <param name="/use_sim_time" value="false" />
   <node name="dashgo_driver" pkg="dashgo_driver" type="dashgo_driver.py" output="screen" respawn="true">
-    <rosparam file="$(find dashgo_driver)/config/my_dashgo_params.yaml" command="load" />
+    <rosparam file="$(find dashgo_driver)/config/my_dashgo_params_noSonar.yaml" command="load" />
   </node>
 
   <arg name="node_name"             value="velocity_smoother"/>

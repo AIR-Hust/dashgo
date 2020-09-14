@@ -24,4 +24,4 @@ sleep 2
 service udev restart
 
 
-chmod +x  /home/eaibot/dashgo_ws/src/dashgo/dashgo_tools/startup/*sh
+#chmod +x  /home/eaibot/dashgo_ws/src/dashgo/dashgo_tools/startup/*sh
